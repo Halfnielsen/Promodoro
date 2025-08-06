@@ -6,12 +6,12 @@
     <Application.Resources>
         <!-- Global colour palette -->
         <LinearGradientBrush x:Key="AppBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#9C27B0" Offset="0"/>
-            <GradientStop Color="#E91E63" Offset="1"/>
+            <GradientStop Color="#B666B4" Offset="0"/>
+            <GradientStop Color="#34DB8D" Offset="1"/>
         </LinearGradientBrush>
 
-        <SolidColorBrush x:Key="AccentBrush" Color="#FF69B4"/>
-        <SolidColorBrush x:Key="AccentBrushHover" Color="#FF85C7"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#FC086F"/>
+        <SolidColorBrush x:Key="AccentBrushHover" Color="#FF5CA2"/>
 
         <!-- Rounded modern button -->
         <Style TargetType="Button">
