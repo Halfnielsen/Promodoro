@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Input; // For NotifyIcon
 
 namespace PomodoroWpf
-{
+{//Before changes
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         // Durations (minutes)

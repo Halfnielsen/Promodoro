@@ -65,7 +65,8 @@
               "RelativeToolTip": "App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T19:30:22.522Z"
+              "WhenOpened": "2025-08-04T19:30:22.522Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -76,7 +77,8 @@
               "ToolTip": "F:\\Freelance\\Documents\\Datamatikker Udd\\Programmering\\PomodoroWpf\\PomodoroWpf\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-04T19:08:09.606Z"
+              "WhenOpened": "2025-08-04T19:08:09.606Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -87,7 +89,8 @@
               "ToolTip": "F:\\Freelance\\Documents\\Datamatikker Udd\\Programmering\\PomodoroWpf\\PomodoroWpf\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-04T19:07:40.822Z"
+              "WhenOpened": "2025-08-04T19:07:40.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -97,7 +100,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "F:\\Freelance\\Documents\\Datamatikker Udd\\Programmering\\PomodoroWpf\\PomodoroWpf\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAwwKkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T19:08:30.418Z",
               "EditorCaption": ""
@@ -112,7 +115,8 @@
               "RelativeToolTip": "AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T19:21:23.484Z"
+              "WhenOpened": "2025-08-04T19:21:23.484Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -128,14 +132,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "PomodoroWpf.csproj",
+              "Title": "PomodoroWpf",
               "DocumentMoniker": "F:\\Freelance\\Documents\\Datamatikker Udd\\Programmering\\PomodoroWpf\\PomodoroWpf\\PomodoroWpf.csproj",
               "RelativeDocumentMoniker": "PomodoroWpf.csproj",
               "ToolTip": "F:\\Freelance\\Documents\\Datamatikker Udd\\Programmering\\PomodoroWpf\\PomodoroWpf\\PomodoroWpf.csproj",
               "RelativeToolTip": "PomodoroWpf.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-04T19:14:17.378Z"
+              "WhenOpened": "2025-08-04T19:14:17.378Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -146,7 +151,8 @@
               "ToolTip": "F:\\Freelance\\Documents\\Datamatikker Udd\\Programmering\\PomodoroWpf\\PomodoroWpf\\SettingsWindow.xaml",
               "RelativeToolTip": "SettingsWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-04T19:09:40.291Z"
+              "WhenOpened": "2025-08-04T19:09:40.291Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -158,7 +164,8 @@
               "RelativeToolTip": "SettingsWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T19:09:59.284Z"
+              "WhenOpened": "2025-08-04T19:09:59.284Z",
+              "EditorCaption": ""
             }
           ]
         }
