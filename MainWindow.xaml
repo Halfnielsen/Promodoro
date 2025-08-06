@@ -15,9 +15,9 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-
         FontFamily="Segoe UI"
         Background="{StaticResource AppBackgroundBrush}" Foreground="White">
+
 
     <Grid>
         <!-- static background circle -->
@@ -25,6 +25,7 @@
                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <!-- animated progress arc -->
+
         <Path x:Name="ProgressArc" Stroke="{StaticResource AccentBrush}" StrokeThickness="12"
               StrokeStartLineCap="Round" Data="M 0 0"/>
 
@@ -56,6 +57,7 @@
             <Button Content="Reset" Click="Reset_Click" Margin="4,0"/>
             <Button Content="Settings" Click="Settings_Click" Margin="4,0"/>
         </StackPanel>
+
 
     </Grid>
 </Window>

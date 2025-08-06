@@ -34,6 +34,7 @@ namespace PomodoroWpf
 
             _timeLeft = TimeSpan.FromMinutes(WorkMinutes);
             UpdateTimeText();
+            DrawProgress(0);
 
             _timer.Elapsed += (_, _) => Dispatcher.Invoke(Tick);
 
@@ -133,6 +134,8 @@ namespace PomodoroWpf
         private void DrawProgress(double percent)
         {
             const double Radius = 120;
+            const double CenterX = 120;
+            const double CenterY = 120;
             const double StartAngle = -90; // top center
 
             double endAngle = StartAngle + percent * 360;
@@ -142,10 +145,10 @@ namespace PomodoroWpf
             bool largeArc = percent > 0.5;
 
             var geom = new PathGeometry();
-            var figure = new PathFigure { StartPoint = Center(start) };
+            var figure = new PathFigure { StartPoint = new Point(CenterX + start.X, CenterY + start.Y) };
             var arc = new ArcSegment
             {
-                Point = Center(end),
+                Point = new Point(CenterX + end.X, CenterY + end.Y),
                 Size = new Size(Radius, Radius),
                 SweepDirection = SweepDirection.Clockwise,
                 IsLargeArc = largeArc
@@ -160,6 +163,7 @@ namespace PomodoroWpf
             double rad = deg * Math.PI / 180;
             return new Point(r * Math.Cos(rad), r * Math.Sin(rad));
         }
+
 
         private Point Center(Point p) => new(Width / 2 + p.X, Height / 2 + p.Y);
 
