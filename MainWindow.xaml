@@ -1,0 +1,45 @@
+﻿<Window x:Class="PomodoroWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pomodoro Timer" Height="380" Width="320"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Background="#1e1e1e" Foreground="White">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="4,0"/>
+            <Setter Property="Padding" Value="12,4"/>
+            <Setter Property="Background" Value="#3c3f41"/>
+            <Setter Property="BorderBrush" Value="#5e5e5e"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Progress ring -->
+        <Grid>
+            <Ellipse Stroke="#555" StrokeThickness="12" />
+            <Path x:Name="ProgressArc"
+                  Stroke="#ff6363" StrokeThickness="12" StrokeStartLineCap="Round"
+                  Data="M 0 0"/>
+            <TextBlock x:Name="TimeText" Text="25:00"
+                       FontSize="48" FontWeight="Bold"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Name="StateText" Text="Ready"
+                       FontSize="18" Margin="0,100,0,0"
+                       HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Grid>
+
+        <!-- Controls -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,16">
+            <Button x:Name="StartPauseBtn" Content="Start" Click="StartPause_Click"/>
+            <Button Content="Reset" Click="Reset_Click"/>
+            <Button Content="Settings" Click="Settings_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

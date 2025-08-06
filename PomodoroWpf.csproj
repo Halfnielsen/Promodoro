@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <!-- or net7.0-windows / net6.0-windows -->
+    <UseWPF>true</UseWPF>
+    <!-- keep WPF -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- add WinForms -->
+  </PropertyGroup>
+</Project>
