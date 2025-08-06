@@ -4,6 +4,7 @@
         Title="Pomodoro" Width="280" Height="280"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+
         FontFamily="Segoe UI" Foreground="White"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
@@ -13,6 +14,10 @@
             <MenuItem Header="Settings" Click="Settings_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
+
+
+        FontFamily="Segoe UI"
+        Background="{StaticResource AppBackgroundBrush}" Foreground="White">
 
     <Grid>
         <!-- static background circle -->
@@ -30,5 +35,27 @@
         <!-- state label -->
         <TextBlock x:Name="StateText" Text="Ready" FontSize="16"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20"/>
+
+        <!-- Progress ring -->
+        <Grid>
+            <Ellipse Stroke="#FFFFFF40" StrokeThickness="12" />
+            <Path x:Name="ProgressArc"
+                  Stroke="{StaticResource AccentBrush}" StrokeThickness="12" StrokeStartLineCap="Round"
+                  Data="M 0 0"/>
+            <TextBlock x:Name="TimeText" Text="25:00"
+                       FontSize="48" FontWeight="Bold"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Name="StateText" Text="Ready"
+                       FontSize="18" Margin="0,100,0,0"
+                       HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Grid>
+
+        <!-- Controls -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,24,0,0">
+            <Button x:Name="StartPauseBtn" Content="Start" Click="StartPause_Click" Margin="4,0"/>
+            <Button Content="Reset" Click="Reset_Click" Margin="4,0"/>
+            <Button Content="Settings" Click="Settings_Click" Margin="4,0"/>
+        </StackPanel>
+
     </Grid>
 </Window>
