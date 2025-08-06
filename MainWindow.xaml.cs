@@ -164,6 +164,9 @@ namespace PomodoroWpf
             return new Point(r * Math.Cos(rad), r * Math.Sin(rad));
         }
 
+
+        private Point Center(Point p) => new(Width / 2 + p.X, Height / 2 + p.Y);
+
         private string PhaseLabel() => _inWorkPhase
             ? "Work"
             : (_pomodorosCompleted % 4 == 0 ? "Long Break" : "Break");
