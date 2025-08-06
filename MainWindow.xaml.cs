@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Forms;
-using System.Windows.Input; // For NotifyIcon
+using System.Windows.Input;
 
 namespace PomodoroWpf
 {
@@ -43,19 +43,19 @@ namespace PomodoroWpf
             _tray.Text = "Pomodoro Timer";
         }
 
-        private void StartPause_Click(object sender, RoutedEventArgs e)
+        private void ToggleTimer()
         {
             if (_isRunning)
             {
                 _timer.Stop();
                 _isRunning = false;
-                StartPauseBtn.Content = "Start";
+                StateText.Text = "Paused";
             }
             else
             {
                 _timer.Start();
                 _isRunning = true;
-                StartPauseBtn.Content = "Pause";
+                StateText.Text = PhaseLabel();
             }
         }
 
@@ -66,7 +66,6 @@ namespace PomodoroWpf
             _timeLeft = TimeSpan.FromMinutes(WorkMinutes);
             _pomodorosCompleted = 0;
             _isRunning = false;
-            StartPauseBtn.Content = "Start";
             UpdateTimeText();
             DrawProgress(0);
             StateText.Text = "Ready";
@@ -78,8 +77,11 @@ namespace PomodoroWpf
             if (dlg.ShowDialog() == true)
             {
                 (WorkMinutes, BreakMinutes, LongBreakMinutes) = dlg.Values;
-                if (!_inWorkPhase) _timeLeft = TimeSpan.FromMinutes(BreakMinutes);
+                _timeLeft = _inWorkPhase
+                    ? TimeSpan.FromMinutes(WorkMinutes)
+                    : TimeSpan.FromMinutes(_pomodorosCompleted % 4 == 0 ? LongBreakMinutes : BreakMinutes);
                 UpdateTimeText();
+                DrawProgress(1 - _timeLeft.TotalSeconds / PhaseTotalSeconds());
             }
         }
 
@@ -94,42 +96,33 @@ namespace PomodoroWpf
                 System.Media.SystemSounds.Beep.Play();
                 _timer.Stop();
                 _isRunning = false;
-                StartPauseBtn.Content = "Start";
 
                 if (_inWorkPhase)
                 {
                     _pomodorosCompleted++;
                     _tray.ShowBalloonTip(2000, "Pomodoro complete!",
                         "Time for a break.", ToolTipIcon.Info);
-
-                    if (_pomodorosCompleted % 4 == 0)
-                    {
-                        _timeLeft = TimeSpan.FromMinutes(LongBreakMinutes);
-                        StateText.Text = "Long Break";
-                    }
-                    else
-                    {
-                        _timeLeft = TimeSpan.FromMinutes(BreakMinutes);
-                        StateText.Text = "Break";
-                    }
+                    _inWorkPhase = false;
+                    _timeLeft = TimeSpan.FromMinutes(_pomodorosCompleted % 4 == 0 ? LongBreakMinutes : BreakMinutes);
                 }
                 else
                 {
                     _tray.ShowBalloonTip(2000, "Break over",
                         "Ready for the next Pomodoro.", ToolTipIcon.Info);
+                    _inWorkPhase = true;
                     _timeLeft = TimeSpan.FromMinutes(WorkMinutes);
-                    StateText.Text = "Work";
                 }
 
-                _inWorkPhase = !_inWorkPhase;
+                StateText.Text = PhaseLabel();
                 DrawProgress(0);
+                UpdateTimeText();
             }
         }
 
         private double PhaseTotalSeconds() =>
             _inWorkPhase
                 ? WorkMinutes * 60
-                : ((_pomodorosCompleted % 4 == 0 && !_inWorkPhase) ? LongBreakMinutes * 60 : BreakMinutes * 60);
+                : (_pomodorosCompleted % 4 == 0 ? LongBreakMinutes * 60 : BreakMinutes * 60);
 
         private void UpdateTimeText()
         {
@@ -168,15 +161,22 @@ namespace PomodoroWpf
             return new Point(r * Math.Cos(rad), r * Math.Sin(rad));
         }
 
-        private Point Center(Point p) => new(Width / 2 + p.X - 8, Height / 2 + p.Y - 40); // tweak offsets
+        private Point Center(Point p) => new(Width / 2 + p.X, Height / 2 + p.Y);
 
-        private void Ellipse_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
+        private string PhaseLabel() => _inWorkPhase
+            ? "Work"
+            : (_pomodorosCompleted % 4 == 0 ? "Long Break" : "Break");
 
-        }
-        private void WindowDrag(object sender, MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+            if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+            {
+                DragMove();
+            }
+            else
+            {
+                ToggleTimer();
+            }
         }
     }
 }
