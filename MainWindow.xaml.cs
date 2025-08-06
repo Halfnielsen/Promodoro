@@ -58,6 +58,8 @@ namespace PomodoroWpf
                 _isRunning = true;
                 StateText.Text = PhaseLabel();
             }
+
+            StartPauseBtn.Content = _isRunning ? "Pause" : "Start";
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
@@ -70,6 +72,7 @@ namespace PomodoroWpf
             UpdateTimeText();
             DrawProgress(0);
             StateText.Text = "Ready";
+            StartPauseBtn.Content = "Start";
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
@@ -181,6 +184,11 @@ namespace PomodoroWpf
             {
                 ToggleTimer();
             }
+        }
+
+        private void StartPause_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleTimer();
         }
     }
 }
